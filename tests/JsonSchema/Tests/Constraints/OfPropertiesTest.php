@@ -87,6 +87,26 @@ class OfPropertiesTest extends BaseTestCase
                     ),
                 ),
             ),
+            array(
+                '{"prop1": [1,2]}',
+                '{
+                  "type": "object",
+                  "properties": {
+                    "prop1": {
+                      "oneOf": [
+                        {
+                          "type": "string",
+                          "pattern": "^[a-z]*$"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^[A-Z]*$"
+                        }
+                      ]
+                    }
+                  }
+                }'
+            ),
         );
     }
 }
